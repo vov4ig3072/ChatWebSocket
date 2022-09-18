@@ -24,8 +24,16 @@ server.on("connection", (socket) => {
             console.log(`${clients[clientId]} connection`);
             server.clients.forEach(client => {
                 client.send(JSON.stringify({
-                    type: "user",
-                    text: inputMessage.text
+                    type: 'user',
+                    text: clients
+                }))
+            })
+        }
+        else if(inputMessage.type === "users"){
+            server.clients.forEach(client => {
+                client.send(JSON.stringify({
+                    type: 'user',
+                    text: clients
                 }))
             })
         }
@@ -34,6 +42,12 @@ server.on("connection", (socket) => {
     socket.on("close", () => {
         console.log(`${clients[clientId]} diconected`);
         delete clients[clientId]
+        server.clients.forEach(client => {
+            client.send(JSON.stringify({
+                type: "user",
+                text: clients
+            }))
+        })
     })
 });
 
@@ -45,7 +59,9 @@ server.on("connection", (socket) => {
 
 function clientsId(clients) {
     let clientId = Math.floor(Math.random() * 1000 + 1);
-
-    clients[clientId] ? clientsId() : clientId
-    
+    if(clients[clientId] !== undefined){
+        return clientsId(clients)
+    }else{
+        return clientId
+    }
 }

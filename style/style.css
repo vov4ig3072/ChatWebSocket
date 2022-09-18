@@ -1,0 +1,125 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgb(226, 217, 217);
+  height: 100vh;
+}
+
+.hide {
+  display: none;
+}
+
+.chat {
+  display: flex;
+  width: 70%;
+  align-items: center;
+}
+
+#users-online {
+  width: 30%;
+  height: max-content;
+  margin: 50px;
+}
+
+.users-message {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 80vh;
+  background: rgb(161, 161, 161);
+  padding: 20px;
+  width: 70%;
+}
+
+.message-right {
+  text-align: right;
+  text-decoration: solid;
+  font-size: 20px;
+  width: 90%;
+  padding: 10px;
+}
+
+.message-left {
+  text-decoration: solid;
+  font-size: 20px;
+  width: 90%;
+  padding: 10px;
+}
+
+.message-left > span {
+  font-size: 14px;
+  font-style: italic;
+}
+
+#send-message {
+  margin: 20px;
+  padding: 20px 50px;
+  color: aqua;
+  background: black;
+}
+
+.input-send-message {
+  background: rgb(226, 217, 217);
+  font-size: 25px;
+  height: 45px;
+  width: 70%;
+  border: none;
+}
+
+@media screen and (max-width: 1500px)  {
+    .chat {
+        width: 90%;
+      }
+
+    .input-send-message {
+        font-size: 20px;
+        height: 30px;
+      }
+
+    #send-message {
+      margin: 10px;
+      padding: 10px 20px;
+      }
+      
+}
+
+@media screen and (max-width: 900px)  {
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    
+    .chat {
+        padding: 0;
+        margin: 0;
+        display: block;
+        height: max-content;
+      }
+
+      #users-online > h2 {
+        font-size: 13px;
+      }
+
+    .input-send-message {
+        padding: 0;
+        margin: 0;
+        font-size: 16px;
+        height: 20px;
+        width: 100%;
+      }
+
+    #send-message {
+        padding: 0;margin: 0;
+      /* margin: 10px; */
+      /* padding: 10px 20px; */
+      width: 100%;
+      }
+      
+}
