@@ -5,6 +5,7 @@ const server = new WebSocketServer({ port: 8000 });
 
 server.on("connection", (socket) => {
     let clientId = clientsId(clients);
+
     socket.on('message', (message) => {
         let inputMessage = JSON.parse(message)
 
@@ -40,8 +41,16 @@ server.on("connection", (socket) => {
     })
     
     socket.on("close", () => {
-        console.log(`${clients[clientId]} diconected`);
+        console.log(`${clients[clientId]} diconnected`);
+
+        server.clients.forEach(client => {
+            client.send(JSON.stringify({
+                type: "disconnect",
+                text: clients[clientId]
+            }))
+        })
         delete clients[clientId]
+
         server.clients.forEach(client => {
             client.send(JSON.stringify({
                 type: "user",
@@ -59,9 +68,6 @@ server.on("connection", (socket) => {
 
 function clientsId(clients) {
     let clientId = Math.floor(Math.random() * 1000 + 1);
-    if(clients[clientId] !== undefined){
-        return clientsId(clients)
-    }else{
-        return clientId
-    }
+
+    return clients[clientId] !== undefined ? clientsId(clients) : clientId
 }

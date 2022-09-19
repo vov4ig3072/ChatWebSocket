@@ -92,6 +92,12 @@ socket.addEventListener("message", (event) => {
         div.innerHTML = `${message.text} </br> <span class="message-from">from ${message.user}</span>`
         usersMessage.append(div)
     }
+    else if(message.type === "disconnect"){
+        let div = document.createElement('div')
+        div.classList.add("message-left")
+        div.innerHTML = `User "${message.text}" left a chat`
+        usersMessage.append(div)
+    }
 })
 
 socket.addEventListener("close", event => {
