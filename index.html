@@ -11,21 +11,35 @@
     <div class="main">
         <div class="div-user-name" >
             <h1>Enter Your Name</h1>
-            <input type="text" id="userNameText">
-            <input type="button" id="login" value="Login">
+            <div class="user-name-inputs">
+                <div class="div-user-name-input">
+                    <input type="text" id="userNameInput" class="user-name-input">
+                </div>
+                <div class="div-user-name-btn">
+                    <input type="button" id="login" value="Login" class="user-name-btn">
+                </div>
+            </div>
         </div>
         
         <div id="chat" class="hide">
-            <div id="users-online">
+            <div id="users-online" class="users-online">
                 <h2>Users ONLINE</h2>
-            <ul class="users-online-ul"></ul> 
+                <ul class="users-online-ul"></ul> 
             </div>
-            <div class="users-message">
+            <div class="div-users-messages">
                 <h2>Messages</h2>
                 <div>
                     <div class="users-messages"></div>
-                    <input type="text" class="input-send-message">
-                    <input type="button" id="send-message" value="Send">
+                    <div class="send-message-inputs">
+                        <div class="div-send-message-input">
+                            <input type="text" class="send-message-input">
+                        </div>
+                        <div class="div-send-message-btn">
+                            <input type="button" id="send" class="send-message-btn" value="Send">
+                        </div>
+                    </div>
+                    
+                        
                 </div>
             </div>    
         </div>

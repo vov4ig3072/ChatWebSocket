@@ -1,12 +1,12 @@
 let socket = new WebSocket("ws://localhost:8000")
 
 let divUserName = document.querySelector(".div-user-name")
-let userName = document.querySelector("#userNameText")
+let userName = document.querySelector("#userNameInput")
 let loginBtn = document.querySelector("#login")
 
 let chat = document.querySelector("#chat")
-let sendMessageBtn = document.querySelector("#send-message")
-let inputMessage = document.querySelector(".input-send-message")
+let sendMessageBtn = document.querySelector("#send")
+let inputMessage = document.querySelector(".send-message-input")
 let usersMessage = document.querySelector(".users-messages")
 let usersOnline = document.querySelector(".users-online-ul")
 let currentUser
@@ -89,7 +89,7 @@ socket.addEventListener("message", (event) => {
     else if(message.type === "message"){
         let div = document.createElement('div')
         div.classList.add("message-left")
-        div.innerHTML = `${message.text} </br> <span>from ${message.user}</span>`
+        div.innerHTML = `${message.text} </br> <span class="message-from">from ${message.user}</span>`
         usersMessage.append(div)
     }
 })
