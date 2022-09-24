@@ -29,8 +29,7 @@ server.on("connection", (socket) => {
     if (inputMessage.type === "message") {
       server.clients.forEach((client) => {
         if (client !== socket) {
-          client.send(
-            JSON.stringify({
+          client.send(JSON.stringify({
               type: "message",
               user: inputMessage.user,
               text: inputMessage.text,
@@ -38,21 +37,21 @@ server.on("connection", (socket) => {
           );
         }
       });
-    } else if (inputMessage.type === "user") {
+    } 
+    else if (inputMessage.type === "user") {
       clients[clientId] = inputMessage.text;
       console.log(`${clients[clientId]} connection`);
       server.clients.forEach((client) => {
-        client.send(
-          JSON.stringify({
+        client.send(JSON.stringify({
             type: "user",
             text: clients,
           })
         );
       });
-    } else if (inputMessage.type === "users") {
+    } 
+    else if (inputMessage.type === "users") {
       server.clients.forEach((client) => {
-        client.send(
-          JSON.stringify({
+        client.send(JSON.stringify({
             type: "user",
             text: clients,
           })
@@ -63,11 +62,9 @@ server.on("connection", (socket) => {
 
   socket.on("close", () => {
     console.log(`${clients[clientId]} diconnected`);
-    console.log(parentDir);
 
     server.clients.forEach((client) => {
-      client.send(
-        JSON.stringify({
+      client.send(JSON.stringify({
           type: "disconnect",
           text: clients[clientId],
         })
@@ -76,8 +73,7 @@ server.on("connection", (socket) => {
     delete clients[clientId];
 
     server.clients.forEach((client) => {
-      client.send(
-        JSON.stringify({
+      client.send(JSON.stringify({
           type: "user",
           text: clients,
         })

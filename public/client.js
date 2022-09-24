@@ -55,6 +55,7 @@ loginBtn.addEventListener("click", (event) => {
 
         divUserName.classList.add("hide")
         chat.classList.add("chat")
+        userName.value = ''
     }
 })
 
@@ -98,7 +99,7 @@ socket.addEventListener("message", (event) => {
     else if(message.type === "disconnect"){
         let div = document.createElement('div')
         div.classList.add("message-left")
-        div.innerHTML = `User "${message.text}" left a chat`
+        div.innerHTML = `User "${message.text}" has left the chat`
         usersMessage.append(div)
     }
 })
