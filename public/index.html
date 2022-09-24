@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" type="text/css" />
+    <title>Socket Chat</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="conteiner-user-name">
+        <h1>Enter Your Name</h1>
+        <div class="user-name-inputs">
+          <div class="conteiner-user-name-input">
+            <input type="text" id="userNameInput" class="user-name-input" />
+          </div>
+          <div class="conteiner-user-name-btn">
+            <input
+              type="button"
+              id="login"
+              value="Login"
+              class="user-name-btn"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div id="chat" class="hide">
+        <div id="users-online" class="users-online">
+          <h2>Users ONLINE</h2>
+          <ul class="users-online-ul"></ul>
+        </div>
+        <div class="conteiner-users-messages">
+          <h2>Messages</h2>
+          <div>
+            <div class="users-messages"></div>
+            <div class="send-message-inputs">
+              <div class="conteiner-send-message-input">
+                <input type="text" class="send-message-input" />
+              </div>
+              <div class="conteiner-send-message-btn">
+                <input
+                  type="button"
+                  id="send"
+                  class="send-message-btn"
+                  value="Send"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./client.js" type="application/javascript"></script>
+  </body>
+</html>

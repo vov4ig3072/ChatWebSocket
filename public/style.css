@@ -11,7 +11,7 @@ body {
   height: 100vh;
 }
 
-.div-user-name{
+.conteiner-user-name{
   margin-top: 50px;
   display: flex;
   flex-direction: column;
@@ -69,7 +69,7 @@ body {
   margin: 50px;
 }
 
-.div-users-messages {
+.conteiner-users-messages {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
@@ -114,7 +114,7 @@ body {
   display: flex;
 }
 
-.div-send-message-btn{
+.conteiner-send-message-btn{
   width: 15%;
   display: flex;
   justify-content: end;
@@ -131,7 +131,7 @@ body {
   box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
 }
 
-.div-send-message-input{
+.conteiner-send-message-input{
   width: 85%;
 }
 

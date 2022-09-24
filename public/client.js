@@ -1,6 +1,6 @@
 let socket = new WebSocket("ws://localhost:8000")
 
-let divUserName = document.querySelector(".div-user-name")
+let divUserName = document.querySelector(".conteiner-user-name")
 let userName = document.querySelector("#userNameInput")
 let loginBtn = document.querySelector("#login")
 
@@ -9,8 +9,10 @@ let sendMessageBtn = document.querySelector("#send")
 let inputMessage = document.querySelector(".send-message-input")
 let usersMessage = document.querySelector(".users-messages")
 let usersOnline = document.querySelector(".users-online-ul")
+
 let currentUser
 let users
+
 window.addEventListener("keypress",(event) => {
     if(event.code === 'Enter'){
         if(userName.value !== ''){
@@ -41,6 +43,7 @@ window.addEventListener("keypress",(event) => {
         }
     }
 })
+
 loginBtn.addEventListener("click", (event) => {
     if(userName.value !== ''){
         currentUser = userName.value
