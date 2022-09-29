@@ -8,6 +8,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 let parentDir = __dirname.slice(0, __dirname.lastIndexOf("\\") + 1);
 
 let app = express();
+const port = process.env.PORT || 8080
 
 app.use("/", express.static(path.join(parentDir, "public")));
 
@@ -15,7 +16,9 @@ app.get("/", (request, response) => {
   response.sendFile(path.join(parentDir, "public", "index.html"));
 });
 
-app.listen(8080);
+app.listen(port, () => {
+  console.log(`Server started http://localsost:${port}`);
+});
 
 let clients = {};
 const server = new WebSocketServer({ port: 8000 });
