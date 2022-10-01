@@ -4,26 +4,47 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" type="text/css" />
+    <link rel="stylesheet" href="./style/style.css" type="text/css" />
     <title>Socket Chat</title>
   </head>
   <body>
     <div class="main">
-      <div class="conteiner-user-name">
+      <div class="container-user-name">
         <h1>Enter Your Name</h1>
         <div class="user-name-inputs">
-          <div class="conteiner-user-name-input">
-            <input type="text" id="userNameInput" class="user-name-input" />
+          <div class="container-user-name-input">
+            <input type="text" id="userNameInput" class="user-name-input" placeholder="name" />
+            <input type="text" id="userPasswordInput" class="user-name-input" placeholder="password"/>
           </div>
-          <div class="conteiner-user-name-btn">
+          <div class="container-user-name-btn">
             <input
               type="button"
               id="login"
               value="Login"
               class="user-name-btn"
             />
+            <input
+              type="button"
+              id="registration"
+              value="Registration"
+              class="user-name-btn"
+            />
           </div>
         </div>
+      </div>
+
+      <div class="container-room">
+          <div class="container-room-change">
+              <span class="room-change"> Select room</span>
+              <select name="room-change" id="room-change" class="room-change-select">
+                <option value="1">Public room</option>
+              </select>
+          </div>
+
+          <div class="container-room-create">
+            <input type="text" class="user-name-input room-create-input" id="room-create-input">
+            <input type="button" value="Create" class="user-name-btn" id="room-create-btn">
+          </div>
       </div>
 
       <div id="chat" class="hide">
@@ -31,15 +52,15 @@
           <h2>Users ONLINE</h2>
           <ul class="users-online-ul"></ul>
         </div>
-        <div class="conteiner-users-messages">
-          <h2>Messages</h2>
+        <div class="container-users-messages">
+          <h2>Messages <span id="room-messages"></span></h2>
           <div>
             <div class="users-messages"></div>
             <div class="send-message-inputs">
-              <div class="conteiner-send-message-input">
+              <div class="container-send-message-input">
                 <input type="text" class="send-message-input" />
               </div>
-              <div class="conteiner-send-message-btn">
+              <div class="container-send-message-btn">
                 <input
                   type="button"
                   id="send"
@@ -53,6 +74,7 @@
       </div>
     </div>
 
-    <script src="./client.js" type="application/javascript"></script>
+    <script src="./jscode/client.js" type="application/javascript"></script>
+    <script src="./jscode/auth.js" type="application/javascript"></script>
   </body>
 </html>

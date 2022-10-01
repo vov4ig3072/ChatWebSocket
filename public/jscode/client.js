@@ -1,9 +1,5 @@
 let socket = new WebSocket("ws://localhost:8000")
 
-let divUserName = document.querySelector(".conteiner-user-name")
-let userName = document.querySelector("#userNameInput")
-let loginBtn = document.querySelector("#login")
-
 let chat = document.querySelector("#chat")
 let sendMessageBtn = document.querySelector("#send")
 let inputMessage = document.querySelector(".send-message-input")
@@ -15,19 +11,7 @@ let users
 
 window.addEventListener("keypress",(event) => {
     if(event.code === 'Enter'){
-        if(userName.value !== ''){
-            currentUser = userName.value
-            const message = JSON.stringify({
-                type: "user",
-                text: userName.value
-            })
-            socket.send(message)
-    
-            divUserName.classList.add("hide")
-            chat.classList.add("chat")
-            userName.value = ''
-        }
-        else if(inputMessage.value !== ''){
+        if(inputMessage.value !== ''){
             const message = JSON.stringify({
                 type: "message",
                 text: inputMessage.value,
@@ -41,21 +25,6 @@ window.addEventListener("keypress",(event) => {
             usersMessage.append(div)
             inputMessage.value = ''
         }
-    }
-})
-
-loginBtn.addEventListener("click", (event) => {
-    if(userName.value !== ''){
-        currentUser = userName.value
-        const message = JSON.stringify({
-            type: "user",
-            text: userName.value
-        })
-        socket.send(message)
-
-        divUserName.classList.add("hide")
-        chat.classList.add("chat")
-        userName.value = ''
     }
 })
 
